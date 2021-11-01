@@ -11,4 +11,14 @@ a {
   box-sizing: border-box;
 }
 
+@layer base {
+  h1 {
+    @apply font-header;
+    @apply text-3xl;
+    @apply font-medium
+  }
+  p, a {
+    @apply font-text;
+  }
+}
 
