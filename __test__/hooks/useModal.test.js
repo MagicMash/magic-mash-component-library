@@ -3,7 +3,7 @@ import { act } from 'react-test-renderer'
 import useModal from '../../src/hooks/useModal'
 
 describe('useModal hook', () => {
-    it('returns false and a toggle handler initially', () => {
+    it('returns false initially', () => {
         const {result} = renderHook(() => {
             return useModal()
         })
