@@ -11,7 +11,6 @@ const Home: NextPage = () => {
       </h1>
       <p className="text-darkGreen"> omae mo ... </p>
       <p className="text-danger "> MUDAMUDAMUDA ... ! </p>
-      <Button withIcon />
     </main>
   );
 };

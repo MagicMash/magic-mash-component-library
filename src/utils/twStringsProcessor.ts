@@ -76,7 +76,7 @@ function isNotEmpty(twClass: string[]) {
 }
 
 function checkOverlappingLevel(baseTWClass: string[], customTWClass: string[]) {
-    if (baseTWClass[0] !== 'bg' && baseTWClass[0] !== 'text') {
+    if (baseTWClass[0] !== 'bg' && baseTWClass[0] !== 'text' && baseTWClass[0] !== 'border' ) {
         let overlappingLevel = 0
         for (let i = 0; i < baseTWClass.length; i++) {
             if (baseTWClass[i] === customTWClass[i]) {

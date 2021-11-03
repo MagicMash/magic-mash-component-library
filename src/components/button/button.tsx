@@ -13,7 +13,9 @@ interface props {
   iconAlt?: string;
   iconClasses?: string;
   iconWidth?: number;
-  iconHeigth?: number
+  iconHeigth?: number;
+  outLined: boolean;
+  onClick: VoidFunction;
 }
 
 const baseProps: props = {
@@ -21,50 +23,64 @@ const baseProps: props = {
   type: "button",
   withIcon: false,
   text: "action",
+  outLined: false,
+  onClick: () => {},
 };
 
-const notIconClasses = "without icon classes ";
-const withIconClasses = "with icon classes ";
-const baseIconClasses = "icon base classes ";
-const baseIcon = "/generic.svg"
+const withIconClasses = " flex flex-row items-center justify-around ";
+const baseIcon = "/generic.svg";
 
-let baseClasses = notIconClasses;
+let baseClasses =
+  "filter drop-shadow-3xl rounded-xl p-2 w-32 shadow-md text-white bg-darkBlue";
+const outlinedClasses =
+  "filter drop-shadow-3xl rounded-xl p-2 w-32 shadow-md text-darkBlue border border-darkBlue ";
 
-const withIcon = (text?: string, icon?: string, alt?: string, classes?: string, width?: number, heigth?: number ) => {
+const withIcon = (
+  text?: string,
+  icon?: string,
+  alt?: string,
+  classes?: string,
+  width?: number,
+  heigth?: number
+) => {
   return (
     <>
       <p>{text}</p>
-      <Image className={classes ? classes : baseIconClasses} src={icon ? icon : baseIcon } width={width ? width : '20'} height={heigth ? heigth : '20'} alt={alt ? alt : 'no alt provided for this icon'} />
+      <Image
+        className={classes ? classes : " "}
+        src={icon ? icon : baseIcon}
+        width={width ? width : "20"}
+        height={heigth ? heigth : "20"}
+        alt={alt ? alt : "no alt provided for this icon"}
+      />
     </>
   );
 };
 
 const noIcon = (text?: string) => {
-    return(
-        <p>
-            {text} 
-        </p>
-    )
-}
+  return <p>{text}</p>;
+};
 
 const Button = (props: props) => {
-  if (props.withIcon) {
-    baseClasses = withIconClasses;
+  if (props.outLined) {
+    baseClasses = outlinedClasses;
   }
 
-  console.log(props)
+  if (props.withIcon) {
+    baseClasses = baseClasses + withIconClasses;
+  }
 
   let twClasses = props.classes
     ? processTWClasses(baseClasses, props.classes)
     : baseClasses;
 
   return (
-    <button className={twClasses} type={props.type}>
-      { props.withIcon ? withIcon(props.text) : noIcon(props.text) }
+    <button onClick={props.onClick} className={twClasses} type={props.type}>
+      {props.withIcon ? withIcon(props.text, props.icon, props.iconAlt, props.iconClasses, props.iconWidth, props.iconHeigth) : noIcon(props.text)}
     </button>
   );
 };
 
-Button.defaultProps = baseProps
+Button.defaultProps = baseProps;
 
 export default Button;
