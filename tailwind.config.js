@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        'lighBlue': '#D2E4FD',
+        'lightBlue': '#D2E4FD',
         'defaultBlue': '#27ABEB',
         'darkBlue': '#102041',
         'lightGreen': '#CDE9D6',
@@ -19,6 +19,9 @@ module.exports = {
     fontFamily: {
       text: ['Roboto', 'sans-serif'],
       header: ['Lato', 'sans-serif']
+    },
+    dropShadow: {
+      '3xl': '5px -3px 6px rgba(0, 0, 0, 0.3)',
     }
   },
   variants: {
