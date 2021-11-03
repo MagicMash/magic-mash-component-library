@@ -4,11 +4,11 @@ export const processTWClasses = (base: string, custom: string) => {
     baseFragmentedClasses = filterTWClasses(baseFragmentedClasses, isNotEmpty)
     customFragmentedClasses = filterTWClasses(customFragmentedClasses, isNotEmpty)
     const filteredFragmentedBaseTWClasses = filterBaseTWCLasses(baseFragmentedClasses, customFragmentedClasses)
-    const filteredBaserTWClasses = filteredFragmentedBaseTWClasses.map(twClass => {
+    const filteredBaseTWClasses = filteredFragmentedBaseTWClasses.map(twClass => {
         return twClass.join('-')
     })
     let processedClasses = custom
-    filteredBaserTWClasses.forEach(twClass => {
+    filteredBaseTWClasses.forEach(twClass => {
         processedClasses = processedClasses + twClass + ' '
     })
     return processedClasses
