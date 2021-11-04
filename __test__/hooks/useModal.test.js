@@ -7,15 +7,18 @@ describe('useModal hook', () => {
         const {result} = renderHook(() => {
             return useModal()
         })
-        const {isOpen, toggleModal} = result.current
+        const [isOpen, toggleModal, modal] = result.current
         expect(isOpen).toBeFalsy()
     } )
     it('toggles the value with handler', () => {
         const {result} = renderHook(() => {
             return useModal()
         })
-        expect(result.current.isOpen).toBeFalsy()
-        act(() => result.current.toggleModal())
-        expect(result.current.isOpen).toBeTruthy()
+
+        const [isOpen, toggleModal, modal] = result.current
+
+        expect(isOpen).toBeFalsy()
+        act(() => toggleModal())
+        expect(result.current[0]).toBeTruthy()
     })
 })

@@ -28,7 +28,7 @@ const baseProps: props = {
 };
 
 const withIconClasses = " flex flex-row items-center justify-around ";
-const baseIcon = "/generic.svg";
+const baseIcon = "/icons/generic.svg";
 
 let baseClasses =
   "filter drop-shadow-3xl rounded-xl p-2 w-32 shadow-md text-white bg-darkBlue";
