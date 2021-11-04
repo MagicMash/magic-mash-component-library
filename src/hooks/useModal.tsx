@@ -1,8 +1,8 @@
 import { useState, ReactNode } from "react";
 import Modal from "../components/modal/modal";
-import { modalComponents } from "../ts/componentsProps";
+import { modalWrapper } from "../ts/componentsProps";
 
-const useModal = (initial = false) : [boolean, () => void, modalComponents] => {
+const useModal = (initial = false) : [boolean, () => void, modalWrapper] => {
   const [isOpen, setIsOpen] = useState(initial);
   const toggleModal = () => {
     setIsOpen((prevState) => {

@@ -8,4 +8,4 @@ export type classes = string | null
 
 export type buttonTypes = "button" | "submit" | "reset" | undefined
 
-export type modalComponents = (children: ReactNode, modalClasses: string) => JSX.Element
+export type modalWrapper = (children: ReactNode, modalClasses: string) => JSX.Element
