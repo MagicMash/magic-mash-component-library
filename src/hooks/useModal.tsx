@@ -24,13 +24,3 @@ const useModal = (initial = false) : [boolean, () => void, modalComponents] => {
 };
 
 export default useModal;
-
-/* isOpen: isOpen,
-    toggleModal: toggleModal,
-    component: (children: ReactNode, modalClasses: string) => {
-      return (
-        <Modal classes={modalClasses} toggleModal={toggleModal} isOpen={isOpen}>
-          {children}
-        </Modal>
-      );
-    }, */
