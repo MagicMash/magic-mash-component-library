@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Button from "../src/components/button/button";
 import useModal from "../src/hooks/useModal";
-import { modalComponents } from "../src/ts/componentsProps";
 import Image from "next/image";
 
 const Home: NextPage = () => {
