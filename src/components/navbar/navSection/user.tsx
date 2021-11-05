@@ -1,0 +1,37 @@
+import { navbarUser } from "../../../ts/componentsProps";
+import { wrappWithLink } from "../../../utils/wrappWithLink";
+import { processTWClasses } from "../../../utils/twStringsProcessor";
+import Image from "next/image";
+
+interface props {
+  user: navbarUser;
+  classes?: string;
+}
+
+const baseClasses = "rounded-full";
+
+const user = (props: props) => {
+  const userComponent = (
+    <div className="flex flex-col items-end">
+      <Image
+        className={
+          props.classes
+            ? processTWClasses(baseClasses, props.classes)
+            : baseClasses
+        }
+        src={props.user.img}
+        onClick={props.user.handler}
+        height={"50"}
+        width={"50"}
+      />
+    </div>
+  );
+
+  if (props.user.withLink && props.user.url) {
+    return wrappWithLink(props.user.url, userComponent, props.user.as);
+  } else {
+    return userComponent;
+  }
+};
+
+export default user;
