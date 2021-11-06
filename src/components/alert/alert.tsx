@@ -10,13 +10,13 @@ interface props {
   textClasses?: string;
   alert: alertData;
   handler?: () => void;
-  closeAlertHandler?: () => void;
+  closeAlertHandler: () => void;
 }
 
 const baseClasses =
   " w-11/12 flex flex-row justify-between py-2 px-6 h-16 items-center shadow-xl rounded-lg ";
 
-const basecontentContainerClasses = "flex flex-row w-2/4";
+const basecontentContainerClasses = "flex flex-row w-11/12 p-2";
 const baseTitleClasses = "my-auto font-semibold text-lg ";
 const baseTextClasses = "ml-8 my-auto ";
 
@@ -68,9 +68,9 @@ const Alert = (props: props) => {
         stroke="#000"
       >
         <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
           d="M6 18L18 6M6 6l12 12"
         />
       </svg>

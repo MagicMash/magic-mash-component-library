@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import Navbar from "../src/components/navbar/navbar";
+import Navbar from "../src/components/sampleComponents/navbarNotificationsExample/navbar";
 import { linkData } from "../src/ts/componentsProps";
 import useModal from "../src/hooks/useModal";
 
@@ -25,14 +25,7 @@ const TestPage: NextPage = () => {
   ];
   return (
     <main className="w-full h-screen flex flex-col items-center space-y-8" >
-      <Navbar
-        classes="absolute fixed top-0"
-        withLogo
-        logo="/matthew-henry-U5rMrSI7Pn4-unsplash.jpg"
-        withLinks
-        links={testLinks}
-        withUser
-      />
+      <Navbar />
       {modal}
     </main>
   );
