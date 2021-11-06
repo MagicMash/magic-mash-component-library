@@ -1,16 +1,18 @@
 import { ReactNode } from "react";
 import { processTWClasses } from "../../utils/twStringsProcessor";
-import Logo from "./navSection/logo";
-import LinkGroup from "./navSection/linkGroup";
-import User from "./navSection/user";
-import { linkData, iconsData, navbarUser } from "../../ts/componentsProps";
+import Logo from "./navSections/logo";
+import LinkGroup from "./navSections/linkGroup";
+import User from "./navSections/user";
+import { linkData, navbarUser } from "../../ts/componentsProps";
 
 interface props {
   children?: ReactNode;
   classes?: string;
   withLinks?: boolean;
+  linkDark?: boolean;
   links?: linkData[];
   linkClasses?: string;
+  linkColor?: string;
   linkContainerClasses?: string;
   withLogo?: boolean;
   logo?: string;
@@ -18,8 +20,6 @@ interface props {
   logoAs?: string;
   logoClasses?: string;
   logoAlt?: string;
-  withIcons?: boolean;
-  icons?: iconsData[];
   withUser?: boolean;
   user?: navbarUser;
   userClasses?: string;
@@ -30,7 +30,7 @@ const baseUser : navbarUser = {
 }
 
 const baseClasses =
-  "h-20 w-full fixed top-0 flex flex-row justify-between px-4 py-4 filter shadow backdrop-filter backdrop-blur-sm z-50 ";
+  "h-20 w-full flex flex-row justify-between px-4 py-4 filter shadow backdrop-filter backdrop-blur-sm z-50 ";
 
 const Navbar = (props: props) => {
   let withLogo = null;
@@ -55,6 +55,7 @@ const Navbar = (props: props) => {
       <LinkGroup
         links={props.links ? props.links : [{ url: "/", text: "home" }]}
         classes={props.linkClasses ? props.linkClasses : " "}
+        linkColor={props.linkColor}
         containerClasses={
           props.linkContainerClasses ? props.linkContainerClasses : " "
         }

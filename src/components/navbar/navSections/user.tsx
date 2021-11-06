@@ -8,11 +8,11 @@ interface props {
   classes?: string;
 }
 
-const baseClasses = "rounded-full";
+const baseClasses = " rounded-full hover:transform hover:transition hover:scale-105 'hover:duration-300'";
 
 const user = (props: props) => {
   const userComponent = (
-    <div className="flex flex-col items-end">
+    <div className="flex rounded-full flex-col items-end">
       <Image
         className={
           props.classes

@@ -3,18 +3,19 @@ import Image from "next/image";
 import { processTWClasses } from "../../../utils/twStringsProcessor";
 
 interface props {
-  url: string;
+  url?: string;
   as?: string;
   img: string;
+  alt?:''
   classes?: string;
 }
 
-const baseClasses = " rounded-full ";
+const baseClasses = " rounded-full cursor-pointer hover:transition hover:transform hover:scale-105 hover:duration-300 ";
 
 const Logo = (props: props) => {
   return (
-    <div className="flex flex-col items-start">
-      <Link href={props.url} as={props.as ? props.as : props.url}>
+    <div className="flex flex-col items-start ">
+      <Link href={props.url ? props.url : '/'} passHref as={props.as && props.url ? props.as : props.url ? props.url : '/'}>
         <Image
           src={props.img}
           className={

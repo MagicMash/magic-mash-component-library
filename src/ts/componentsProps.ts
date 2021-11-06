@@ -14,15 +14,10 @@ export type modalWrapper = (children: ReactNode, modalClasses: string) => JSX.El
 export type linkData = {
     url?: string,
     as?: string,
-    text: string,
-    hander?: () => void 
-}
-
-export type iconsData = {
-    url: string,
-    as?: string,
-    img: string,
-    handler?: () => void 
+    text?: string,
+    handler?: () => void,
+    withIcon?: boolean,
+    icon?: ReactNode, 
 }
 
 export type navbarUser = {

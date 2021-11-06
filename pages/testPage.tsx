@@ -1,13 +1,12 @@
 import type { NextPage } from "next";
-import { linkData } from "../src/ts/componentsProps";
-import Button from "../src/components/button/button";
-import useModal from "../src/hooks/useModal";
 import Navbar from "../src/components/navbar/navbar";
+import { linkData } from "../src/ts/componentsProps";
+import useModal from "../src/hooks/useModal";
 
 const bell = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-5 w-5 hover:transform hover:transition hover:scale-105 cursor-pointer"
+    className="h-5 w-5 hover:transform hover:transition hover:scale-105 cursor-pointer "
     viewBox="0 0 20 20"
     fill="currentColor"
   >
@@ -15,18 +14,17 @@ const bell = (
   </svg>
 );
 
-const Home: NextPage = () => {
+const TestPage: NextPage = () => {
   const [isOpen, toggleModal, myComponent] = useModal();
   const modal = myComponent(<p>MODAL</p>, " ");
 
   const testLinks: linkData[] = [
     { url: "/", text: "Home" },
     { url: "/testPage", text: "TestPage" },
-    { withIcon: true, icon: bell, handler: toggleModal}
+    { withIcon: true, icon: bell, handler: toggleModal },
   ];
-
   return (
-    <main className="w-full h-screen flex flex-col items-center space-y-8">
+    <main className="w-full h-screen flex flex-col items-center space-y-8" >
       <Navbar
         classes="absolute fixed top-0"
         withLogo
@@ -35,16 +33,9 @@ const Home: NextPage = () => {
         links={testLinks}
         withUser
       />
-      <h1 className=" text-darkBlue pt-24 ">
-        {" "}
-        Magic Mash ui-library is on the way mf!!{" "}
-      </h1>
-      <p className="text-darkGreen"> omae mo ... </p>
-      <p className="text-danger "> MUDAMUDAMUDA ... ! </p>
-      <Button text="Toggle Modal" onClick={toggleModal} />
       {modal}
     </main>
   );
 };
 
-export default Home;
+export default TestPage;

@@ -22,5 +22,8 @@ a {
     @apply font-text;
     @apply text-darkBlue
   }
+  .textOnDark{
+    @apply text-white
+  }
 }
 
