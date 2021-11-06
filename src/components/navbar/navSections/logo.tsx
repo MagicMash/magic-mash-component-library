@@ -6,31 +6,36 @@ interface props {
   url?: string;
   as?: string;
   img: string;
-  alt?:''
+  alt?: "";
   classes?: string;
 }
 
-const baseClasses = " rounded-full cursor-pointer hover:transition hover:transform hover:scale-105 hover:duration-300 ";
+const baseClasses =
+  " rounded-full cursor-pointer hover:transition hover:transform hover:scale-105 hover:duration-300 ";
 
 const Logo = (props: props) => {
   return (
     <div className="flex flex-col items-start ">
-      <Link href={props.url ? props.url : '/'} passHref as={props.as && props.url ? props.as : props.url ? props.url : '/'}>
-        <Image
-          src={props.img}
-          className={
-            props.classes
-              ? processTWClasses(baseClasses, props.classes)
-              : baseClasses
-          }
-          height={50}
-          width={50}
-        />
+      <Link
+        href={props.url ? props.url : "/"}
+        passHref
+        as={props.as && props.url ? props.as : props.url ? props.url : "/"}
+      >
+        <a>
+          <Image
+            src={props.img}
+            className={
+              props.classes
+                ? processTWClasses(baseClasses, props.classes)
+                : baseClasses
+            }
+            height={50}
+            width={50}
+          />
+        </a>
       </Link>
     </div>
   );
 };
 
 export default Logo;
-
-

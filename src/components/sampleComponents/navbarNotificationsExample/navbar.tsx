@@ -15,7 +15,7 @@ const bell = (
   </svg>
 );
 
-const initialAlerts : alertData[] = [
+const initialAlerts: alertData[] = [
   {
     text: "alert text must be provided, extra info, as dropdowns or modals handler can be passed by the children and handler props to by the linkData type object",
     title: "Warning Example",
@@ -24,24 +24,30 @@ const initialAlerts : alertData[] = [
 ];
 
 const NavbarWithNotifications = () => {
+  const [isAlertsModalOpen, toggleAlerstModal, modal] = useModal();
+  const [alerts, addAlert, removeAlert] = useAlert(initialAlerts);
 
-    const [isAlertsModalOpen, toggleAlerstModal, modal] = useModal()
-    const [alerts, addAlert, removeAlert] = useAlert(initialAlerts)
+  const testLinks: linkData[] = [
+    { url: "/", text: "Home" },
+    { url: "/testPage", text: "TestPage" },
+    { withIcon: true, icon: bell, handler: toggleAlerstModal },
+  ];
 
-    const testLinks: linkData[] = [
-        { url: "/", text: "Home" },
-        { url: "/testPage", text: "TestPage" },
-        { withIcon: true, icon: bell, handler: toggleAlerstModal}
-      ];
+  const alertComponents = alerts.map((alert, index) => {
+    return (
+      <Alert
+        key={index}
+        classes=" bg-lightYellow "
+        closeAlertHandler={() => removeAlert(alert.title)}
+        alert={alert}
+      />
+    );
+  });
 
-    const alertComponents = alerts.map((alert, index) => {
-        return <Alert key={index} classes=' bg-lightYellow ' closeAlertHandler={() => removeAlert(alert.title)} alert={alert} />
-    })
-
-    const alertsModal = modal(alertComponents, " w-11/12 ")
+  const alertsModal = modal(alertComponents, " w-11/12 ");
 
   return (
-  <>
+    <>
       <Navbar
         classes="absolute fixed top-0"
         withLogo
@@ -51,7 +57,7 @@ const NavbarWithNotifications = () => {
         withUser
       />
       {alertsModal}
-  </>
+    </>
   );
 };
 
