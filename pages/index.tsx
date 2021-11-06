@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { linkData } from "../src/ts/componentsProps";
 import Button from "../src/components/button/button";
 import useModal from "../src/hooks/useModal";
-import Navbar from "../src/components/navbar/navbar";
+import Navbar from "../src/components/sampleComponents/navbarNotificationsExample/navbar";
 import useAlert from "../src/hooks/useAlert";
 import Alert from "../src/components/alert/alert";
 
@@ -38,14 +38,7 @@ const Home: NextPage = () => {
 
   return (
     <main className="w-full h-screen flex flex-col items-center space-y-8">
-      <Navbar
-        classes="absolute fixed top-0"
-        withLogo
-        logo="/matthew-henry-U5rMrSI7Pn4-unsplash.jpg"
-        withLinks
-        links={testLinks}
-        withUser
-      />
+      <Navbar />
       <div className='pt-24 w-full flex flex-col items-center' >
       {alerts.length > 0 ? <Alert alert={alerts[0]} classes=' bg-lightPink ' closeAlertHandler={() => removeAlert('alert title') } /> : null}
       <h1 className=" text-darkBlue pt-24 ">

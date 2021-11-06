@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { processTWClasses } from "../../../utils/twStringsProcessor";
 import { linkData } from "../../../ts/componentsProps";
-import bell from "../../../../public/icons/bell.svg";
 
 interface props {
   links: linkData[];
@@ -23,7 +22,7 @@ const LinkGroup = (props: props) => {
           : baseContainerClasses
       }
     >
-      <div className="px-8 flex flex-row space-x-8">
+      <div className="px-8 flex flex-row space-x-8 border-b-2">
         {props.links.map((link, index) => {
           return (
             <div key={index}>
@@ -52,7 +51,7 @@ const LinkGroup = (props: props) => {
           );
         })}
       </div>
-      <hr className="border-darkBlue border-opacity-50 mt-1 " />
+      
     </div>
   );
 };

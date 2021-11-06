@@ -18,6 +18,7 @@ export type linkData = {
     handler?: () => void,
     withIcon?: boolean,
     icon?: ReactNode, 
+    linkClass?: string
 }
 
 export type navbarUser = {
