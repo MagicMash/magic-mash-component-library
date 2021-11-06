@@ -15,10 +15,15 @@ a {
   h1 {
     @apply font-header;
     @apply text-3xl;
-    @apply font-medium
+    @apply font-medium;
+    @apply text-darkBlue
   }
   p, a {
     @apply font-text;
+    @apply text-darkBlue
+  }
+  .textOnDark{
+    @apply text-white
   }
 }
 

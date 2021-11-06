@@ -33,7 +33,7 @@ const baseIcon = "/icons/generic.svg";
 let baseClasses =
   "filter drop-shadow-3xl rounded-xl p-2 w-32 shadow-md text-white bg-darkBlue";
 const outlinedClasses =
-  "filter drop-shadow-3xl rounded-xl p-2 w-32 shadow-md text-darkBlue border border-darkBlue ";
+  "filter drop-shadow-3xl rounded-xl p-2 w-32 shadow-md text-darkBlue border border-darkBlue bg-white";
 
 const withIcon = (
   text?: string,
@@ -45,7 +45,7 @@ const withIcon = (
 ) => {
   return (
     <>
-      <p>{text}</p>
+      {text}
       <Image
         className={classes ? classes : " "}
         src={icon ? icon : baseIcon}
@@ -58,7 +58,7 @@ const withIcon = (
 };
 
 const noIcon = (text?: string) => {
-  return <p>{text}</p>;
+  return text;
 };
 
 const Button = (props: props) => {
