@@ -27,3 +27,9 @@ export type navbarUser = {
     as?: string;
     handler?: () => void;
 }
+
+export type alertData = {
+    title: string,
+    text: string,
+    content?: string
+}
