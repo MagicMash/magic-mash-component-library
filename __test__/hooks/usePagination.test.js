@@ -41,5 +41,9 @@ describe("usePagination hook", () => {
       act(() => target(5))
       const expectedIndexes = [5, 6, 7]
       expect(result.current[1]).toEqual(expectedIndexes)
+
+      act(() => target(9))
+      const endIndexes = [9, 10]
+      expect(result.current[1]).toEqual(endIndexes)
   })
 });
