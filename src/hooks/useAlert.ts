@@ -14,7 +14,6 @@ const useAlert = (initialAlerts: alertData[]) : [alertData[], (alert: alertData)
     }
 
     const removeAlert = (alertTitleToRemove: string) => {
-        console.log('removing alert')
         setAlerts(prevState => {
             let newState = prevState
             newState = newState.filter(alert => {
