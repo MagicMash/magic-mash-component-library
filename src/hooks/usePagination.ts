@@ -1,18 +1,18 @@
 import { useState } from "react";
 
-const usePagination = (top: number, numberOfPages: number ) : [number, number[] , () => void, () => void, ( target :number) => void] => {
+const usePagination = (top: number, maxNumberOfPages: number ) : [number, number[] , () => void, () => void, ( target :number) => void] => {
 
-    let numberOfPagesChecked = numberOfPages 
-    if(numberOfPagesChecked === undefined){
-        numberOfPagesChecked = top
+    let maxNumberOfPagesChecked = maxNumberOfPages 
+    if(maxNumberOfPagesChecked === undefined){
+        maxNumberOfPagesChecked = top
     }
-    const initialIndexes = getIndexes(top, 0, numberOfPagesChecked)
+    const initialIndexes = getIndexes(top, 0, maxNumberOfPagesChecked)
 
     const [selected, setSelected] = useState(0)
     const [indexes, setIndexes] = useState(initialIndexes)
 
     const updateIndexes = (selected: number) => {
-        setIndexes(getIndexes(top, selected, numberOfPagesChecked))
+        setIndexes(getIndexes(top, selected, maxNumberOfPagesChecked))
     }
 
     const next = () => {
